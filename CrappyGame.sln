@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{3DADCE62-A006-71A2-FDD0-276FD720C28F}") = "CrappyGame", "Assembly-CSharp.csproj", "{4F82C857-89F2-5C18-239D-7A4D1294AC11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F82C857-89F2-5C18-239D-7A4D1294AC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F82C857-89F2-5C18-239D-7A4D1294AC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F82C857-89F2-5C18-239D-7A4D1294AC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F82C857-89F2-5C18-239D-7A4D1294AC11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
