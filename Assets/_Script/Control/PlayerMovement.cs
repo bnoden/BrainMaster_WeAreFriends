@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-    static float walk = 2.0f, sprint = walk+2.0f, step;
+    static float walk = 1.0f, sprint = walk+1.0f, step;
     public Vector3 playerPos;
     public AudioSource jumpFX;
 
@@ -23,32 +23,31 @@ public class PlayerMovement : MonoBehaviour {
         Move(step);
     }
 
-    public void Jump() {
-        if (Input.GetKeyUp(KeyCode.Space)) {
-                GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-            }
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            if(Input.GetKey(KeyCode.LeftShift)) {
+    public void Attack() {
+        if (Input.GetButtonDown("Attack")) {
+            Debug.Log("SMAAAAAAAAAAAAASH!");
         }
-            if (GetComponent<Rigidbody2D>().velocity.y > -0.5f && GetComponent<Rigidbody2D>().velocity.y < 0.5f) {
-                GetComponent<Rigidbody2D>().velocity = new Vector3(0, 8, 0);
+    }
+
+    public void Jump() {
+        if (Input.GetButtonDown("Jump")) { GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0); }
+
+        if (Input.GetButtonDown("Jump")) {
+            if (GetComponent<Rigidbody2D>().velocity.y > -1.0f && GetComponent<Rigidbody2D>().velocity.y < 0.5f) {
+                GetComponent<Rigidbody2D>().velocity = new Vector3(0, 4, 0);
                 jumpFX.Play();
             }
         }
     }
 
     public void Move(float speed) {
-        bool UP = Input.GetKey(KeyCode.UpArrow), DOWN = Input.GetKey(KeyCode.DownArrow),
-            LEFT = Input.GetKey(KeyCode.LeftArrow), RIGHT = Input.GetKey(KeyCode.RightArrow);
-        
         playerPos = transform.position;
         
-        if (LEFT) {
-            playerPos.x-=step;
-        }
-        if (RIGHT) {
+        if (Input.GetKey(KeyCode.LeftArrow)) { playerPos.x-=step; }
+        if (Input.GetKey(KeyCode.RightArrow)) {
             playerPos.x+=step;
         }
+
         transform.position = playerPos;
     }
 

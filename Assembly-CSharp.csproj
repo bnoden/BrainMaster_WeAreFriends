@@ -45,8 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Script\Camera\Camera.cs" />
+     <Compile Include="Assets\_Script\Camera\PlayerCam.cs" />
      <Compile Include="Assets\_Script\Control\PlayerMovement.cs" />
+     <Compile Include="Assets\_Script\Environment\InstaDeath.cs" />
+     <Compile Include="Assets\_Script\Manager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
