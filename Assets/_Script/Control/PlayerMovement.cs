@@ -3,47 +3,53 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public GameObject player;
+    static float walk = 2.0f, sprint = walk+2.0f, step;
     public Vector3 playerPos;
-    static float walk = 2.0f;
-    static float sprint = walk+2.0f;
-    static float step;
+    public AudioSource jumpFX;
 
-	// Use this for initialization
-	void Start () {
-	    playerPos = player.transform.position;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    Move();
-	}
-
-    public void Attack() {
-        if (Input.GetButtonDown("Attack")) {
-            Debug.Log("SMAAAAAAAAAAAAASH!");
-        }
+    void Start () {
+        
     }
-
-    public void Move() {
-        Attack();
+    
+    // Update is called once per frame
+    void Update () {
         step = Time.deltaTime*walk;
+
         if(Input.GetKey(KeyCode.LeftShift)) {
             step = Time.deltaTime*sprint;
         }
-        if(Input.GetKey(KeyCode.UpArrow)) {
-            playerPos.y+=step;
+
+        Jump();
+        Move(step);
+    }
+
+    public void Jump() {
+        if (Input.GetKeyUp(KeyCode.Space)) {
+                GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+            }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if(Input.GetKey(KeyCode.LeftShift)) {
         }
-        if(Input.GetKey(KeyCode.DownArrow)) {
-            playerPos.y-=step;
+            if (GetComponent<Rigidbody2D>().velocity.y > -0.5f && GetComponent<Rigidbody2D>().velocity.y < 0.5f) {
+                GetComponent<Rigidbody2D>().velocity = new Vector3(0, 8, 0);
+                jumpFX.Play();
+            }
         }
-        if(Input.GetKey(KeyCode.LeftArrow)) {
+    }
+
+    public void Move(float speed) {
+        bool UP = Input.GetKey(KeyCode.UpArrow), DOWN = Input.GetKey(KeyCode.DownArrow),
+            LEFT = Input.GetKey(KeyCode.LeftArrow), RIGHT = Input.GetKey(KeyCode.RightArrow);
+        
+        playerPos = transform.position;
+        
+        if (LEFT) {
             playerPos.x-=step;
         }
-        if(Input.GetKey(KeyCode.RightArrow)) {
+        if (RIGHT) {
             playerPos.x+=step;
         }
-        player.transform.position = playerPos;
+        transform.position = playerPos;
     }
 
 
