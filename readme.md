@@ -1,9 +1,9 @@
-For the Crappy Game Jam!
+For the Crappy Game Jam!  
+  
+Wasn't submitted in time.  
+  
 
-Wasn't submitted in time.
 
-
-
-Move: arrow keys
-"Sprint": hold left shift key
-Jump: space key
+Move: arrow keys  
+"Sprint": hold left shift key  
+Jump: space key  
