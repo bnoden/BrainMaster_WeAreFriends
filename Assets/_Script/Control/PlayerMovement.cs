@@ -44,9 +44,7 @@ public class PlayerMovement : MonoBehaviour {
         playerPos = transform.position;
         
         if (Input.GetKey(KeyCode.LeftArrow)) { playerPos.x-=step; }
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            playerPos.x+=step;
-        }
+        if (Input.GetKey(KeyCode.RightArrow)) { playerPos.x+=step; }
 
         transform.position = playerPos;
     }

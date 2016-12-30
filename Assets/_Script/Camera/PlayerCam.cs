@@ -7,9 +7,9 @@ public class PlayerCam : MonoBehaviour {
     Vector3 offset;
 
     float Xmin = -2.0f;
-    float Xmax = 120.0f;
+    float Xmax = 146.0f;
     float Ymin = -1.0f;
-    float Ymax = 3.0f;
+    float Ymax = 8.0f;
 
 	// Use this for initialization
 	void Start () {
